@@ -27,9 +27,11 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
+    "bcrypt": "^3.0.0",
     "eslint-watch": "^4.0.0",
     "express": "^4.16.1",
-    "jsonschema": "^1.2.4"
+    "jsonschema": "^1.2.4",
+    "jsonwebtoken": "^8.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",

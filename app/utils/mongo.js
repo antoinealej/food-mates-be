@@ -11,3 +11,7 @@ export function categoryCollection() {
 export function foodOriginCollection() {
   return mongoCollection('foodOrigin');
 }
+
+export function userCollection() {
+  return mongoCollection('user');
+}

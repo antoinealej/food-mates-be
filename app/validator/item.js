@@ -8,8 +8,6 @@ export default async (item) => {
   const categories = await categoryCollection().find({}).toArray();
   const foodOrigin = await foodOriginCollection().find({}).toArray();
 
-  console.log(categories.map((cat) => cat));
-
   const schema = {
     title: 'Item',
     type: 'object',

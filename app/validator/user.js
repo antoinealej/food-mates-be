@@ -2,20 +2,20 @@ import validate from 'jsonschema';
 
 const { Validator } = validate;
 
-export default async (foodOrigin) => {
+export default async (user) => {
   const v = new Validator();
 
   const schema = {
-    title: 'FoodOrigin',
+    title: 'User',
     type: 'object',
     properties: {
-      name: { type: 'string' },
-      creationDate: { type: 'string' },
+      userName: { type: 'string' },
+      password: { type: 'string' }
     },
-    required: ['name']
+    required: ['userName', 'password']
   }
 
-  const result = v.validate(foodOrigin, schema);
+  const result = v.validate(user, schema);
 
   if (result.errors.length > 0)
     throw new Error(result.errors.map(({ stack }) => stack).join(', '));

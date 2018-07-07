@@ -2,11 +2,11 @@ import validate from 'jsonschema';
 
 const { Validator } = validate;
 
-export default async (item) => {
+export default async (category) => {
   const v = new Validator();
 
   const schema = {
-    title: 'Item',
+    title: 'Category',
     type: 'object',
     properties: {
       name: { type: 'string' },
@@ -15,7 +15,7 @@ export default async (item) => {
     required: ['name']
   }
 
-  const result = v.validate(item, schema);
+  const result = v.validate(category, schema);
 
   if (result.errors.length > 0)
     throw new Error(result.errors.map(({ stack }) => stack).join(', '));
