@@ -28,7 +28,8 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "eslint-watch": "^4.0.0",
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "jsonschema": "^1.2.4"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
