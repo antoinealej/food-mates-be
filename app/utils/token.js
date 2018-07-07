@@ -7,4 +7,3 @@ export function tokenConstruct(data) {
 export function tokenVerify(token) {
   return jwt.verify(token, 'secret');
 }
-

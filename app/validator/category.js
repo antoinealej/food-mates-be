@@ -17,8 +17,7 @@ export default async (category) => {
 
   const result = v.validate(category, schema);
 
-  if (result.errors.length > 0)
-    throw new Error(result.errors.map(({ stack }) => stack).join(', '));
+  if (result.errors.length > 0) throw new Error(result.errors.map(({ stack }) => stack).join(', '));
 
   return true;
 }

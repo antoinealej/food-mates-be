@@ -3,7 +3,7 @@ import { tokenVerify } from '../utils/token';
 import { userCollection } from '../utils/mongo';
 
 export async function verifyUser(req, res, next) {
-  let token = req.headers.authorization;
+  const token = req.headers.authorization;
   let data;
 
   try {
@@ -23,7 +23,7 @@ export async function verifyUser(req, res, next) {
 
   const user = await userCollection().find({ _id: ObjectId(data.id) }).toArray();
 
-  if(!user.length) {
+  if (!user.length) {
     return res.status(401).json({
       message: 'User does not exist',
       code: 'food-mates.middleware.auth.user.failed'
