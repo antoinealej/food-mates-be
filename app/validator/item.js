@@ -12,17 +12,21 @@ export default async (item) => {
     title: 'Item',
     type: 'object',
     properties: {
+      user: { type: 'string' },
       title: { type: 'string' },
       description: { type: 'string' },
       category: { type: 'string', 'enum': categories.map(({ _id }) => _id.toString()) },
       foodOrigin: { type: 'string', 'enum': foodOrigin.map(({ _id }) => _id.toString()) },
       expiryDate: { type: 'string' },
       location: { type: 'string' },
-      coordinates: { type: 'object' },
+      coordinates: {
+        lat: { type: 'string' },
+        long: { type: 'string' }
+      },
       usedCondition: { type: 'string' },
       postDate: { type: 'string' },
     },
-    required: ['title', 'description', 'category', 'expiryDate', 'location', 'coordinates']
+    required: ['user', 'title', 'description', 'category', 'expiryDate', 'location']
   }
 
   const result = v.validate(item, schema);
