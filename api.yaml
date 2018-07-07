@@ -1,0 +1,30 @@
+swagger: "2.0"
+info:
+  title: Food Mates BE
+  description: The best way to share your food and meet some mates!
+  version: 1
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /auth/login:
+    post:
+      summary: login to the application
+      tags:
+        - Auth
+      parameters:
+      - name: body
+        in: body
+        schema:
+          type: object
+          properties:
+            userName:
+              type: string
+              example: FoodLover
+            password:
+              type: string
+              example: LovesTheFood
+      response:
+        "200":
+          description: Success

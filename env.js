@@ -1,2 +1,1 @@
-var dotenv = require('dotenv-extended');
-dotenv.config();
+require('dotenv-extended').load();
