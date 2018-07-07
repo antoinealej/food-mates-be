@@ -1,0 +1,49 @@
+{
+  "name": "food-mates-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "start:watch": "nodemon --watch app index",
+    "lint": "eslint app/**",
+    "lint:watch": "esw -w app/**",
+    "build": "babel app --out-dir lib",
+    "dev": "npm-run-all --parallel start:watch lint:watch",
+    "test": "HTTP_PROXY= ./node_modules/.bin/_mocha --require ./env.js --require babel-polyfill --require babel-core/register \"app/**/*.spec.js\" --timeout 10000",
+    "tdd": "npm run test -- --watch app/**/*.spec.js",
+    "cover": "HTTP_PROXY= ./node_modules/.bin/nyc ./node_modules/.bin/_mocha --require ./env.js --require babel-core/register \"app/**/*.js\"",
+    "cover:view": "nyc report --reporter=lcov && open ./coverage/lcov-report/index.html",
+    "check-nsp": "nsp check",
+    "pre-commit": "npm-run-all --parallel cover lint check-nsp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alcwa_base_server": "^1.1.0",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint-watch": "^4.0.0",
+    "express": "^4.16.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "dotenv-extended": "^2.0.1",
+    "eslint": "^5.0.0",
+    "mocha": "^5.0.0",
+    "nodemon": "^1.12.1",
+    "npm-run-all": "^4.1.1",
+    "nsp": "^3.0.0",
+    "nyc": "^11.2.1",
+    "proxyquire": "^2.0.0",
+    "supertest": "^3.0.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/alcwa_base_server/eslint.js"
+  },
+  "pre-commit": "pre-commit"
+}
