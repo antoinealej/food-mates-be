@@ -28,6 +28,7 @@ router.post('/create', async (req, res, next) => {
   };
   const photo = req.files && req.files.photo;
   let photoPath;
+  let response;
 
   try {
     await validateItem(item);
@@ -57,7 +58,7 @@ router.post('/create', async (req, res, next) => {
   item.photo = photoPath;
 
   try {
-    await itemCollection().insert(item);
+    response = await itemCollection().insert(item);
   } catch (error) {
     return next({
       message: error.message,
@@ -65,7 +66,7 @@ router.post('/create', async (req, res, next) => {
     });
   }
 
-  return res.status(200).json({ status: 'created' });
+  return res.status(200).json(response);
 });
 
 export default router;

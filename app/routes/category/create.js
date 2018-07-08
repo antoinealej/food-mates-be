@@ -9,6 +9,7 @@ router.post('/create', async (req, res, next) => {
     name: req.body.name,
     creationDate: new Date().toISOString()
   };
+  let response;
 
   try {
     await validateItem(category);
@@ -20,7 +21,7 @@ router.post('/create', async (req, res, next) => {
   }
 
   try {
-    await categoryCollection().insert(category);
+    response = await categoryCollection().insert(category);
   } catch (error) {
     return next({
       message: error.message,
@@ -28,7 +29,7 @@ router.post('/create', async (req, res, next) => {
     });
   }
 
-  return res.status(200).json({ status: 'created' });
+  return res.status(200).json(response);
 });
 
 export default router;
